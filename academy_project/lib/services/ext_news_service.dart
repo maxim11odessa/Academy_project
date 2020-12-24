@@ -20,10 +20,11 @@ class ExtNewsServiceImpl implements ExtNewsService {
       String to,
       String sortBy = 'publishedAt'}) async {
     final toDate = to ?? _calculateToDate();
+    final fromDate = _calculateFromDate();
 
     final quety = mapToQuery({
       'q': tag,
-      'from': from,
+      'from': fromDate,
       'to': toDate,
       'sortBy': sortBy,
       'apiKey': _apiKey,
