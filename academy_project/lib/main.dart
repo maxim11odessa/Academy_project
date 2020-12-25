@@ -1,5 +1,6 @@
+import 'package:academy_project/pages/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:academy_project/pages/news_list_page.dart';
+// import 'package:academy_project/pages/news_list_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +16,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: NewsListPage());
+        home: SplashScreen());
   }
 }
