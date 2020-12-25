@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:academy_project/pages/login_page.dart';
 import 'package:academy_project/pages/news_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 2),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewsListPage())));
+            context, MaterialPageRoute(builder: (context) => LoginScreen())));
   }
 
   @override
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Image.asset(
             'assets/splash/News_Logo.png',
-            height: 100.0,
+            height: 300.0,
           ),
           SizedBox(
             height: 30.0,
