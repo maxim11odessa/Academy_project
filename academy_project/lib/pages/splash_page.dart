@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:academy_project/pages/login_page.dart';
-import 'package:academy_project/pages/news_list_page.dart';
+// import 'package:academy_project/pages/news_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

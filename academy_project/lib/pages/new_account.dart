@@ -1,8 +1,9 @@
-// import 'package:academy_project/pages/news_list_page.dart';
-import 'package:academy_project/pages/new_account.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+// import 'package:academy_project/pages/news_list_page.dart';
+import 'package:flutter/material.dart';
+
+class Registration extends StatelessWidget {
   final _sizeTextBlack = const TextStyle(fontSize: 20.0, color: Colors.black);
   final _sizeTextWhite = const TextStyle(fontSize: 20.0, color: Colors.white);
 
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
       child: MaterialApp(
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Главное меню'),
+            title: Text('Регистрация'),
           ),
           body: Center(
             child: Column(
@@ -43,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                     height: 50.0,
                     minWidth: 150.0,
                     child: Text(
-                      'LOGIN',
+                      'Create account',
                       style: _sizeTextWhite,
                     ),
                   ),
@@ -52,16 +53,13 @@ class LoginScreen extends StatelessWidget {
                   padding: EdgeInsets.only(top: 25.0),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Registration()));
+                      Navigator.pop(context);
                     },
                     color: Theme.of(context).accentColor,
                     height: 50.0,
                     minWidth: 150.0,
                     child: Text(
-                      'Add account',
+                      'Back',
                       style: _sizeTextWhite,
                     ),
                   ),
