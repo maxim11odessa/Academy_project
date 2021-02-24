@@ -1,10 +1,40 @@
 // import 'package:academy_project/pages/news_list_page.dart';
 import 'package:academy_project/pages/new_account.dart';
+import 'package:academy_project/pages/news_list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:academy_project/services/local_cash_service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final _sizeTextBlack = const TextStyle(fontSize: 20.0, color: Colors.black);
+
   final _sizeTextWhite = const TextStyle(fontSize: 20.0, color: Colors.white);
+
+  final _loginController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    _loginController.dispose();
+    super.dispose();
+  }
+
+  Future<void> onLogin() async {
+    final localCash = LocalCashServiceImpl();
+    final value = _loginController.text;
+    if (value != null && value != '') {
+        localCash.setString('token', value);
+         Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NewsListPage()));
+    }
+    
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +50,7 @@ class LoginScreen extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: TextFormField(
+                    controller: _loginController,
                     decoration: InputDecoration(labelText: 'Login'),
                     keyboardType: TextInputType.text,
                     style: _sizeTextBlack,
@@ -38,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 25.0),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () => onLogin(),
                     color: Theme.of(context).accentColor,
                     height: 50.0,
                     minWidth: 150.0,

@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:academy_project/pages/login_page.dart';
+import 'package:academy_project/services/local_cash_service.dart';
 // import 'package:academy_project/pages/news_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import 'news_list_page.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -19,8 +22,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(
         Duration(seconds: 2),
-        () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen())));
+        () => nextPage());
+  }
+
+  Future<void> nextPage() async {
+    final localCash = LocalCashServiceImpl();
+    final token = await localCash.getString('token');
+    if (token != null && token != '') {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NewsListPage()));
+    } else {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    }
   }
 
   @override
